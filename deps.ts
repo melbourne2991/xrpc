@@ -1,0 +1,1 @@
+export { oas31 } from 'npm:openapi3-ts@4.1.2'
