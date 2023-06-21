@@ -1,5 +1,6 @@
 {
   "tasks": {
-    "test": "deno test --allow-net"
+    "test": "deno test --allow-net tests/",
+    "bundle": "deno run --allow-read --allow-net --allow-run --allow-env --allow-write scripts/build-npm.ts"
   }
 }

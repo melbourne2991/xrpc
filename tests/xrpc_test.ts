@@ -1,26 +1,10 @@
-import { describe, it, assertEquals, Server, spy } from "./deps-dev.ts";
-import { Operation } from "./builder.ts";
-import { Type } from "./typebox.ts";
-import { createFetchHandler } from "./create-fetch-handler.ts";
-import { createClient } from "./create-client.ts";
-import { InferContextTypeFromFn } from "./types.ts";
-
-const createServer = async (
-  handler: (request: Request) => Promise<Response>
-) => {
-  const server = new Server({
-    hostname: "localhost",
-    port: 8046,
-    handler,
-  });
-  const finished = server.listenAndServe();
-  await new Promise((resolve) => setTimeout(resolve, 50));
-
-  return async () => {
-    server.close();
-    await finished;
-  };
-};
+import { describe, it, assertEquals, spy } from "../deps-dev.ts";
+import { Operation } from "../builder.ts";
+import { Type } from "../typebox.ts";
+import { createClient } from "../create-client.ts";
+import { InferContextTypeFromFn } from "../types.ts";
+import { createFetchHandler } from "../create-fetch-handler.ts";
+import { createServer } from './create-server.deno.ts';
 
 const simpleMutation = () => {
   return Operation()
@@ -67,7 +51,7 @@ describe("xrpc", () => {
 
     const handler = createFetchHandler({
       operations,
-      basePath: "/",
+      basePath: "/"
     });
 
     const closeServer = await createServer(handler);

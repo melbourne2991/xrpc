@@ -79,7 +79,7 @@ export interface BuildDocParams {
   info: oas31.InfoObject;
 }
 
-export function buildDoc({ basePath, operations, info }: BuildDocParams) {
+export function buildOpenAPIDoc({ basePath, operations, info }: BuildDocParams) {
   const opContainer = OperationContainer<unknown>(basePath);
   const builder = oas31.OpenApiBuilder.create();
 

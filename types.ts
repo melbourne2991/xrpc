@@ -93,4 +93,6 @@ export type InferContextTypeFromFn<T extends ContextFn> = T extends (
   ? X
   : never;
 
-export type ContextFn<T = unknown> = (request: Request) => PromiseLike<T> | T;
+export type ContextFn<T = unknown, A extends any[] = unknown[]> = (...args: A) => PromiseLike<T> | T;
+
+

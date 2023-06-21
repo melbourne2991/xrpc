@@ -1,4 +1,4 @@
-export * from './deps/typebox.ts'
+export * from './typebox.ts'
 export * from './types.ts';
 export { createClient } from './create-client.ts';
-export { createFetchHandler } from './create-fetch-handler.ts'
+export { createFetchLikeHandler } from './create-fetch-handler.ts'

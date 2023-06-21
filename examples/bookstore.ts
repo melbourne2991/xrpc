@@ -1,6 +1,6 @@
 
 import { Operation } from "../builder.ts";
-import { Type } from "@sinclair/typebox";
+import { Type } from "../typebox.ts";
 
 // A dummy database of books.
 let books = [
@@ -56,9 +56,9 @@ const addBook = Operation()
 // Define the operations of this API.
 const operations = [getBook, addBook];
 
-import { buildDoc } from '../openapi.ts';
+import { buildOpenAPIDoc } from '../openapi.ts';
 
-const doc = buildDoc({
+const doc = buildOpenAPIDoc({
   basePath: "/bookstore",
   operations,
   info: {
